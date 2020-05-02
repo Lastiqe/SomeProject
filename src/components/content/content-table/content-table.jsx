@@ -1,11 +1,14 @@
 import React from 'react';
+import { StyledContent } from '../styled-content';
 
 
 const ContentTable = () => {
     return (
+
         <div >
-            <span>ТАБЛИЦА</span>
+
         </div>
+
     );
 }
 

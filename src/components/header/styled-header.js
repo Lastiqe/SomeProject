@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-export const StyledHeader = styled.div `
+export const StyledHeader = styled.div`
   grid-area: h;
     .headerWrapper {
         display: flex;
@@ -50,12 +50,12 @@ export const StyledHeader = styled.div `
     .age {
         grid-area: a;
     }
-    .sortByGreat {
+    .sortByGreat a {
         grid-area: sg;
         width: 10em;
         border-left: 1px solid black;
     }
-    .sortByLess  {  
+    .sortByLess a {  
         grid-area: sl;
         width: 10em;
     }

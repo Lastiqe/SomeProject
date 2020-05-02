@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
-import Header from './components/header/header';
-import Content from './components/content/content';
+import Header from './components/header/Header';
+import ContentContainer from './components/content/ContentContainer';
 import { StyledApp } from './styled-app';
 
 
-const App = () => {
+const App = (props) => {
   return (
     <StyledApp>
       <div className='appWrapper'>
         <Header />
-        <Content />
+        <ContentContainer />
       </div>
     </StyledApp>
 

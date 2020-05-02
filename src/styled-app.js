@@ -7,7 +7,7 @@ export const StyledApp = styled.div`
         display: grid;
         width: 1200px;
         margin: 0 auto;
-        grid-template-rows: 1fr 6fr;
+        grid-template-rows: 100px 14fr;
         grid-template-columns: 1fr;
         grid-template-areas:
         "h"
