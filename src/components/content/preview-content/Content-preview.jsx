@@ -12,13 +12,21 @@ const ContentPreview = (props) => {
 
     useEffect(() => {
         setLoadingStatus(props.loading)
-            ;
     }, [props.loading])
 
-    const loadMore = (e) => {
+    const handleScroll = () => {
+        if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) {
+            return undefined;
+        }
+        if (props.loading) return undefined
         props.loadMoreUsers(props.page + 1)
-
     }
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [props.page])
+
+
 
     return (
         <StyledPreview>
@@ -28,7 +36,7 @@ const ContentPreview = (props) => {
                         <CSSTransition
                             classNames={(index + 1) % 2 == 0 ? 'rightside' : 'leftside'}
                             key={index}
-                            timeout={200 * ((index + 1) % 10 == 0 ? 10 : (index + 1) % 10)} >
+                            timeout={600 * ((index + 1) % 10 == 0 ? 10 : (index + 1) % 10)} >
                             <StyledUser user={user.video} userId={index} >
                                 <UserPreviewBlock user={user} key={index} />
                             </StyledUser>
@@ -37,7 +45,7 @@ const ContentPreview = (props) => {
                 })
                 }
             </TransitionGroup>
-            {props.loading ? <Loader /> : <button onClick={loadMore}>ЕЩЕ</button>}
+            {props.loading ? <Loader /> : <div onScroll={handleScroll} />}
         </StyledPreview>
     );
 }

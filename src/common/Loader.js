@@ -1,5 +1,5 @@
 import React from 'react';
-import loader from '../assets/loader/Ellipsis-1.5s-144px.svg'
+import loader from '../assets/loader/Ellipsis-1.3s-237px.svg'
 
 
 const Loader = (props) => {

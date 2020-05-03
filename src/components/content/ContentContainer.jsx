@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import Content from './Content';
 import { getUsers, loadMoreUsers } from '../../redux/users-reducer';
 import { connect } from 'react-redux';
+import Content from './Content';
 
 
 
