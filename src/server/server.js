@@ -17,15 +17,35 @@ app.get('/', (req, res) => res.send('Hello World!'))
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
 
+const sortBy = (arr, method) => {
+    switch (method) {
+        case "id":
+            return arr.slice().sort((a, b) => (a.id > b.id ? 1 : -1));
+        case "name":
+            return arr.slice().sort((a, b) => (a.name > b.name ? 1 : -1));
+        case "age":
+            return arr.slice().sort((a, b) => (a.age > b.age ? 1 : -1));
+        default:
+            return arr;
+    }
+}
+
 app.get('/users', function (req, res) {
     const page = req.query.page
     const limit = req.query.limit
+    const sortType = req.query.sortType
+    const sortOrder = req.query.sortOrder
 
     const startIndex = (page - 1) * limit
     const endIndex = page * limit
-    const results = {}
-    results.results = users.slice(startIndex, endIndex)
+    const sortedArr = sortOrder === 'toGreat' ? sortBy(users, sortType).reverse() : sortBy(users, sortType)
+    const results = {
+        data: '',
+        totalCount: ''
+    }
+
+    results.data = sortedArr.slice(startIndex, endIndex)
+    results.totalCount = sortedArr.length
     res.json(results)
 })
-
 

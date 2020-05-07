@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-import Header from './components/header/Header';
+import HeaderContainer from './components/header/HeaderContainer';
 import ContentContainer from './components/content/ContentContainer';
 import { StyledApp } from './styled-app';
 
 
 const App = (props) => {
+
   return (
     <StyledApp>
       <div className='appWrapper'>
-        <Header />
+        <HeaderContainer />
         <ContentContainer />
       </div>
     </StyledApp>
-
-
   );
 }
+export default App
 
-export default App;

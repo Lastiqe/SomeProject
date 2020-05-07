@@ -4,12 +4,14 @@ import Preview from './preview/preview';
 import { StyledHeader } from './styled-header';
 
 
-const Header = () => {
+const Header = (props) => {
+
     return (
-        <StyledHeader>
+        <StyledHeader sortType={props.sortType} sortOrder={props.sortOrder} >
             <div className='headerWrapper'>
-                <Sort />
-                <Preview />
+                <Sort sortType={props.sortType}
+                    changeSortType={props.changeSortType}
+                    sortOrder={props.sortOrder} />
             </div>
         </StyledHeader>
 

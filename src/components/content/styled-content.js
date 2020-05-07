@@ -49,8 +49,17 @@ export const StyledPreview = styled.div`
             transform: translate(0, 0);
             transform: translate3d(0, 0, 0);
             transition-property: transform, opacity;
-            transition-duration: .6s;
+            transition-duration: .55s;
             transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1.2), linear;
+      }
+      .leftside-exit,
+      .rightside-exit {
+            opacity: 1;
+      }
+      .leftside-exit-active,
+      .rightside-exit-active {
+            opacity: 0;
+            transition: opacity .2s ease;
       }
 `
 
@@ -73,7 +82,7 @@ export const StyledUser = styled.div`
             padding: 10px 10px;    
             box-sizing: border-box;    
             transition: ease .4s; 
-            box-shadow: 4px 5px 5px 0px #000000;
+            box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
       }
       .player {
